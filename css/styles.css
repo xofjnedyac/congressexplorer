@@ -1,0 +1,61 @@
+body {
+    position: relative;
+    font-family: montserrat;
+    padding: 0px 45px;
+}
+
+header {
+    text-align: center;
+    font-size: 2.3rem;
+    line-height: 100%;
+}
+
+button {
+    background-color: #0259fe;
+    border: none;
+    border-radius: 5px;
+    height: 44px;
+    font-family: montserrat;
+    padding: 20px;
+    line-height: 0px;
+    font-size: .9rem;
+    color: white;
+    margin-bottom: 20px;
+}
+
+button:hover {
+    background-color: #4284ff;
+}
+
+#tileContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.tile {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    max-width: 175px;
+    margin: 15px 7px 0 7px;
+}
+
+.tile img{
+    border-radius: 5px 5px 5px 5px;
+}
+.name {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    background-color: rgb(35, 54, 141);
+    border-radius: 0 0 5px 5px;
+    text-align: center;
+    height: 1.6rem;
+    padding-top: 0px;
+    font-size: 1.1rem;
+    line-height: 1.6rem;
+}
