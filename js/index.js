@@ -49,6 +49,7 @@ let newCongress =  simplifyCongress(representatives, senators);
 const congressTiles = document.querySelector('#tileContainer')
 
 function renderCongress(congressArray) {
+    congressTiles.innerHTML = "";
     congressArray.forEach((rep) =>  {
     const tile = document.createElement("div");
     tile.setAttribute('class', 'tile');
@@ -56,8 +57,16 @@ function renderCongress(congressArray) {
     img.setAttribute('src', rep.imgUrl);
     const textHolder = document.createElement("div");
     textHolder.setAttribute('class', 'name');
+    const title = document.createTextNode(rep.title + " ");
     const text = document.createTextNode(rep.fullName);
+    const brk = document.createElement("br");
+    const state = document.createTextNode(rep.state + ", ");
+    const years = document.createTextNode(rep.seniority + " years");
+    textHolder.append(title);
     textHolder.append(text);
+    textHolder.append(brk);
+    textHolder.append(state);
+    textHolder.append(years);
     tile.append(img);
     tile.append(textHolder);
     congressTiles.append(tile);
@@ -99,4 +108,20 @@ function filterInds(congressArray) {
 
 const filteredInds = filterInds(newCongress);
 
-console.log(filteredInds)
+function sortBySeniority(congressArray) {
+    return congressArray.sort((a, b) => b.seniority - a.seniority)
+ }
+ 
+ const sortedCongress = sortBySeniority(newCongress);
+
+const sortDems = document.querySelector('#dem');
+const sortReps = document.querySelector('#repub');
+const sortInds = document.querySelector('#indep');
+const allCongress = document.querySelector('#all');
+const sortBySen = document.querySelector('#sortSen');
+
+sortDems.addEventListener("click", (event) => renderCongress(filteredDems));
+sortReps.addEventListener("click", (event) => renderCongress(filteredRepubs));
+sortInds.addEventListener("click", (event) => renderCongress(filteredInds));
+allCongress.addEventListener("click", (event) => renderCongress(newCongress));
+sortBySen.addEventListener("click", (event) => renderCongress(sortedCongress));
