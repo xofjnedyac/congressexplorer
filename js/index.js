@@ -108,6 +108,30 @@ function filterInds(congressArray) {
 
 const filteredInds = filterInds(newCongress);
 
+function filterRepresentatives(congressArray) {
+    let filteredReps = [];
+    congressArray.forEach((rep) => {
+        if (rep.title === 'Rep.')
+        filteredReps.push(rep)
+    })
+    return filteredReps;
+}
+
+const filteredRepresentatives = filterRepresentatives(newCongress);
+
+function filterSenators(congressArray) {
+    let filteredSens = [];
+    congressArray.forEach((rep) => {
+        if (rep.title === 'Sen.')
+        filteredSens.push(rep)
+    })
+    return filteredSens;
+}
+
+const filteredSenators = filterSenators(newCongress);
+
+
+
 function sortBySeniority(congressArray) {
     return congressArray.sort((a, b) => b.seniority - a.seniority)
  }
@@ -119,9 +143,13 @@ const sortReps = document.querySelector('#repub');
 const sortInds = document.querySelector('#indep');
 const allCongress = document.querySelector('#all');
 const sortBySen = document.querySelector('#sortSen');
+const sortRepresentatives = document.querySelector('#representatives');
+const sortSenators = document.querySelector('#senators');
 
 sortDems.addEventListener("click", (event) => renderCongress(filteredDems));
 sortReps.addEventListener("click", (event) => renderCongress(filteredRepubs));
 sortInds.addEventListener("click", (event) => renderCongress(filteredInds));
 allCongress.addEventListener("click", (event) => renderCongress(newCongress));
 sortBySen.addEventListener("click", (event) => renderCongress(sortedCongress));
+sortRepresentatives.addEventListener("click", (event) => renderCongress(filteredRepresentatives));
+sortSenators.addEventListener("click", (event) => renderCongress(filteredSenators));
