@@ -32,7 +32,7 @@ function simplifyCongress(reps, sens) {
             state: sen.state,
             party: sen.party,
             title: sen.short_title,
-            imgUrl: `https:www.govtrack.us/static/legislator-photos/${sen.govtrack_id}-100px.jpeg`    
+            imgUrl: `https://www.govtrack.us/static/legislator-photos/${sen.govtrack_id}-100px.jpeg`    
 
         }
  
@@ -50,6 +50,7 @@ const congressTiles = document.querySelector('#tileContainer')
 
 function renderCongress(congressArray) {
     congressTiles.innerHTML = "";
+    
     congressArray.forEach((rep) =>  {
     const tile = document.createElement("div");
     tile.setAttribute('class', 'tile');
