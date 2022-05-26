@@ -16,7 +16,7 @@ function simplifyCongress(reps, sens) {
             state: rep.state,
             party: rep.party,
             title: rep.short_title,
-            imgUrl: `https:www.govtrack.us/static/legislator-photos/${rep.govtrack_id}-100px.jpeg`
+            imgUrl: `https://www.govtrack.us/static/legislator-photos/${rep.govtrack_id}-100px.jpeg`
 
         }
         
